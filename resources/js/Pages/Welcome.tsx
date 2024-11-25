@@ -1,6 +1,7 @@
 import NavBar from '@/Components/NavBar';
 import { PageProps } from '@/types';
 import { Head, Link } from '@inertiajs/react';
+import { Theme } from '@radix-ui/themes';
 
 export default function Welcome({
     auth,
@@ -21,7 +22,9 @@ export default function Welcome({
     return (
         <>
             <Head title="Welcome" />
-            <NavBar />
+            <Theme>
+                <NavBar />
+            </Theme>
         </>
     );
 }

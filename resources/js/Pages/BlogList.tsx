@@ -7,6 +7,7 @@ interface Blog {
     id: number;
     title: string;
     description: string;
+    image: string | null;
 }
 
 const BlogList: React.FC = () => {
@@ -27,6 +28,7 @@ const BlogList: React.FC = () => {
                 <CardContent>
                     {blogs.map((blog) => (
                         <div key={blog.id}>
+                            <div>{blog.image}</div>
                             <h1>{blog.title}</h1>
                             <p>{blog.description}</p>
                         </div>

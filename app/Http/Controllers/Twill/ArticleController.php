@@ -7,16 +7,19 @@ use A17\Twill\Services\Listings\Columns\Text;
 use A17\Twill\Services\Listings\TableColumns;
 use A17\Twill\Services\Forms\Fields\Input;
 use A17\Twill\Services\Forms\Form;
-use A17\Twill\Http\Controllers\Admin\ModuleController as BaseModuleController;
+use A17\Twill\Http\Controllers\Admin\NestedModuleController as BaseModuleController;
 
-class BlogController extends BaseModuleController
+class ArticleController extends BaseModuleController
 {
-    protected $moduleName = 'blogs';
+    protected $moduleName = 'articles';
+    protected $showOnlyParentItemsInBrowsers = true;
+    protected $nestedItemsDepth = 1;
     /**
      * This method can be used to enable/disable defaults. See setUpController in the docs for available options.
      */
     protected function setUpController(): void
     {
+        $this->enableReorder();
     }
 
     /**
@@ -46,11 +49,5 @@ class BlogController extends BaseModuleController
         );
 
         return $table;
-    }
-
-    protected function formData($request) {
-        return [
-            'medias' => ['image'],
-        ];
     }
 }

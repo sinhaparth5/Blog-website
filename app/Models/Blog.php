@@ -25,5 +25,16 @@ class Blog extends Model implements Sortable
     public $slugAttributes = [
         'title',
     ];
+
+    public $mediaParams = [
+        'image' => [
+            'default' => [
+                [
+                    'name' => 'default',
+                    'ratio' => 16 / 9,
+                ],
+            ],
+        ],
+    ];
     
 }

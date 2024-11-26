@@ -9,5 +9,12 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/blogs', function () {
-    return Blog::all();
+    return Blog::all()->map(function ($blog) {
+        return [
+            'id' => $blog->id,
+            'title' => $blog->title,
+            'description' => $blog->description,
+            'image' => $blog->image('image', 'default'),
+        ];
+    });
 });
